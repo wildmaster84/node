@@ -1,0 +1,14 @@
+version: '2'
+services:
+  ptero:
+    hostname: daemon
+    image: quay.io/parkervcp/pterodactyl-daemon:develop
+    ports:
+      - "8080:8080"
+      - "2022:2022"
+    tty: true
+    restart: always
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/srv/daemon/config/:/srv/daemon/config/"
+      - "/srv/daemon-data/:/srv/daemon-data/"
